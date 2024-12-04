@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Aplicamos Poppins a todo el sitio */
+}
+
+#cont-general {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    background: #F3E6F5; /* Fondo suave rosa pastel */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#cont-general.gradient {
+    background: linear-gradient(45deg, #8f5a81, #e76b99); /* Gradiente de rosa oscuro y cálido */
+}
+
+h2 {
+    color: #D06C9F; /* Rosa fuerte */
+    margin: 20px 0 15px;
+    padding: 10px;
+    font-size: 38px;
+    font-family: 'Poppins', sans-serif; /* Usamos Poppins también en los títulos */
+}
+
+.right, .left {
+    width: 42%;
+    background: transparent;
+    border: 1px solid #D06C9F; /* Borde rosa fuerte */
+    box-shadow: 0px 4px 8px 0px #D06C9F; /* Sombra rosa fuerte */
+    margin: 50px;
+    position: relative;
+}
+
+.button button {
+    color: #ffffff;
+    background-color: #D06C9F; /* Rosa fuerte */
+    font-size: 18px;
+    margin: 8px;
+    padding: 13px 35px;
+    border-color: transparent;
+    font-family: 'Poppins', sans-serif; /* Poppins en botones */
+}
+.button button:hover {
+    color: aliceblue;
+    background-color: #9B58D5; /* Púrpura suave */
+    border-color: rgb(255, 255, 255); 
+}
+
+.circulo {
+    border-radius: 50%;
+}
+.rombo {
+    transform: rotate(45deg);
+    border-radius: 0;
+}
+
+#seleccionC {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+#figura {
+    height: 250px;
+    width: 250px;
+    background: #D06C9F; /* Rosa fuerte */
+    margin: 150px auto;
+    transition: .4s;
+    background-size: cover;
+    background-position: center;
+}
+
+#figura.estrella {
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 74%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transition: transform 0.5s ease-in-out;
+}
+
+#figura.degradado {
+    background-image: linear-gradient(to right, #ff7e5f, #feb47b); /* Degradado de colores */
+    transition: background-image 0.5s ease-in-out; /* Suaviza el cambio */
+}
+
+
+@keyframes brincos{
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(0,-20px);
+    }
+}
+
+#figura.estrella {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 74%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.superior {
+    position: absolute;
+    top: 0;
+    bottom: 22rem;
+    right: 0;
+    left: 0;
+    margin: 0 auto !important;
+}
+
+.bottom {
+    position: absolute;
+    top: 27.5rem;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.derecha {
+    position: absolute;
+    right: 0;
+    left: 30rem;
+}
+
+.izquierda {
+    position: absolute;
+    right: 30rem;
+    left: 0;
+}
+
+.diagonal {
+    position: absolute;
+    animation: diagonal 7s infinite ease-in-out;
+    bottom: 27.7rem;
+    left: 0;
+}
+
+#figura .fondo {
+    background: linear-gradient(#D06C9F, #9B58D5) !important; /* Degradado de rosa a púrpura */
+}
+
+#panel-lateral {
+    position: absolute;
+    left: -400px;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    height: auto;
+    background: #D06C9F; /* Rosa fuerte */
+    z-index: 10; 
+    transition: .4s;   
+}
+
+#panel-lateral.active {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    height: auto;
+    background: #D06C9F; /* Rosa fuerte */
+    border: 2px solid rgba(255, 105, 180, 0.7); /* Rosa claro */
+    z-index: 100;    
+}
+
+#panel-superior {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: -150vh;
+    background: #D06C9F; /* Rosa fuerte */
+    border: 2px solid rgba(255, 105, 180, 0.7); /* Rosa claro */
+    z-index: 10; 
+    transition: .4s;
+}
+
+#panel-superior.desactive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: #D06C9F; /* Rosa fuerte */
+    border: 2px solid rgba(255, 105, 180, 0.7); /* Rosa claro */
+    z-index: 10; 
+}
+
+#panel-lateral .fila, #panel-superior .fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px 40px;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif; /* Poppins en las filas también */
+}
+
+#panel-lateral button, #panel-superior button {
+    color: aliceblue;
+    padding: 10px 20px;
+    background: #000000;
+    border: none;
+    font-family: 'Poppins', sans-serif; /* Poppins en los botones del panel */
+}
+
+#panel-lateral .menu {
+    text-align: start;
+    font-size: 25px;
+    color: #000000;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif; /* Poppins en los menús */
+}
+
+#panel-lateral .menu li {
+    padding: 10px 40px;
+    margin-bottom: 10px;
+}
+
+#panel-lateral .menu li a {
+    text-decoration: none;
+    color: black;
+    transition: .4s;
+}
+
+#panel-lateral .menu li a:hover {
+    color: white;
+}
+
+#panel-lateral button:hover, #panel-superior button:hover {
+    color: #000000;
+    padding: 10px 20px;
+    background: #9B58D5; /* Púrpura suave */
+    border: none;
+    border-radius: 50px;
+}
